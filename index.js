@@ -18,8 +18,8 @@ initializeApp({
 const db = getFirestore();
 
 app.get("/kudos-reward", async (req, res) => {
-  console.log(email, typeOfKudos);
   const { email, typeOfKudos } = req.query;
+  console.log(email, typeOfKudos);
 
   const userEmailToSecretWalletMap = await getUsersEmailToWallet(db);
 

@@ -20,6 +20,7 @@ const db = getFirestore();
 app.get("/kudos-reward", async (req, res) => {
   const { email, typeOfKudos } = req.query;
   console.log(email, typeOfKudos);
+  console.log("works!");
 
   const userEmailToSecretWalletMap = await getUsersEmailToWallet(db);
 

@@ -9,6 +9,7 @@ const serviceAccount = require("./firebaseSecret.json");
 const { getInfuraInstance } = require("./getInfuraInstance");
 const { getUsersEmailToWallet } = require("./getUsersEmailToWallet");
 const { givePointsToAddress } = require("./givePointsToAddress");
+const { increaseUserSkills } = require("./increaseUsersSkills");
 
 initializeApp({
   credential: cert(serviceAccount),
@@ -19,8 +20,6 @@ const db = getFirestore();
 
 app.get("/kudos-reward", async (req, res) => {
   const { email, typeOfKudos } = req.query;
-  console.log(email, typeOfKudos);
-  console.log("works!");
 
   const userEmailToSecretWalletMap = await getUsersEmailToWallet(db);
 
@@ -35,6 +34,8 @@ app.get("/kudos-reward", async (req, res) => {
   } catch (err) {
     console.log(err);
   }
+
+  await increaseUserSkills(db, typeOfKudos, email);
 
   res.sendStatus(200);
 });

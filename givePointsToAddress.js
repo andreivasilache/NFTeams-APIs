@@ -14,5 +14,5 @@ module.exports.givePointsToAddress = async (db, to, amount) => {
     smartContractAddress,
     abi,
     fromWallet
-  ).sendCointsToAdress(to, formatValueToUint256);
+  ).sendCoinsToAdress(to, formatValueToUint256);
 };

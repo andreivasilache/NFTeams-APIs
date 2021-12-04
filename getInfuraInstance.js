@@ -4,7 +4,7 @@ const { infuraPrivateKey } = require("./secrets");
 module.exports.getInfuraInstance = (privateKey) => {
   const { Wallet, providers } = ethers;
 
-  const network = "ropsten";
+  const network = "matic";
   const infuraProvider = new providers.InfuraProvider(
     network,
     infuraPrivateKey
